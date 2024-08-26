@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ye Yint Thu - Cybersecurity Red Teamer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #101010;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #E74C3C;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        header .profile-pic {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #E74C3C;
+            object-fit: cover;
+        }
+        header .clock {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        nav {
+            background-color: #151515;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #E74C3C;
+        }
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        main h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #E74C3C;
+            position: relative;
+        }
+        main h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 5px;
+            background-color: #E74C3C;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+        main p, main ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        main ul {
+            list-style: none;
+            padding: 0;
+        }
+        main ul li {
+            padding-left: 20px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        main ul li:hover {
+            background-color: #333;
+        }
+        main ul li::before {
+            content: "\2022";
+            color: #E74C3C;
+            font-weight: bold;
+            display: inline-block; 
+            width: 20px;
+            margin-left: -20px;
+            position: absolute;
+        }
+        footer {
+            background-color: #101010;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        footer p {
+            margin: 0;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #E74C3C;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+        .back-to-top:hover {
+            background-color: #C0392B;
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            color: white;
+        }
+        .popup h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .popup p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .popup button {
+            background-color: #E74C3C;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .popup button:hover {
+            background-color: #C0392B;
+        }
+        .contact-form {
+            background-color: #151515;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+        .contact-form h2 {
+            color: #E74C3C;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            font-family: 'Arial', sans-serif;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #E74C3C;
+            cursor: pointer;
+            border: none;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #C0392B;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+            header .profile-pic {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="clock" id="clock"></div>
+            <h1>Ye Yint Thu</h1>
+            <p>Cybersecurity Red Teamer</p>
+        </header>
+
+        <nav>
+            <a href="#profile">Profile</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <main>
+            <section id="profile">
+                <h2>Profile</h2>
+                <p>I am a dedicated cybersecurity professional currently pursuing NCC Level 5 Cyber Security at MST University. I hold the eCPPT (Certified Professional Penetration Tester) certification, and I'm passionate about ethical hacking and penetration testing.</p>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li onclick="showPopup('Penetration Testing')">Penetration Testing</li>
+                    <li onclick="showPopup('Network Security')">Network Security</li>
+                    <li onclick="showPopup('Ethical Hacking')">Ethical Hacking</li>
+                    <li onclick="showPopup('Web Application Security')">Web Application Security</li>
+                    <li onclick="showPopup('Security Audits and Assessments')">Security Audits and Assessments</li>
+                </ul>
+            </section>
+
+            <section id="education">
+                <h2>Education</h2>
+                <p><strong>MST University, Mandalay</strong> - NCC Level 5 Cyber Security</p>
+                <p>August 2022 - Present</p>
+                <p>I passed the Grade 10 matriculation with 4 subjects distinctions and also passed the NCC L4 first semester with 3 distinctions.</p>
+            </section>
+
+            <section id="certifications">
+                <h2>Certifications</h2>
+                <ul>
+                    <li onclick="showPopup('eCPPT - Certified Professional Penetration Tester')">eCPPT - Certified Professional Penetration Tester</li>
+                    <li onclick="showPopup('NCC Level 4')">NCC Level 4</li>
+                </ul>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <p><strong>Project 1: Penetration Testing on a University Network</strong></p>
+                <p>Description: Conducted a thorough penetration testing of the university network, identifying vulnerabilities and providing remediation strategies.</p>
+
+                <p><strong>Project 2: Web Application Security Testing</strong></p>
+                <p>Description: Performed security testing on a web application, uncovering multiple security flaws, and suggesting necessary fixes.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <form class="contact-form" id="contactForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Ye Yint Thu &copy; 2023</p>
+        </footer>
+
+        <div class="back-to-top" id="backToTop">↑</div>
+
+        <div class="popup-overlay" id="popupOverlay">
+            <div class="popup" id="popup">
+                <h2>Skill Details</h2>
+                <p id="popupContent"></p>
+                <button onclick="closePopup()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for back-to-top button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // JavaScript for clock
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            clock.textContent = `${hours}:${minutes}`;
+        }
+        setInterval(updateClock, 1000);
+
+        // JavaScript for skill popups
+        function showPopup(skill) {
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupContent = document.getElementById('popupContent');
+            popupContent.textContent = `You clicked on ${skill}. More details will be added here.`;
+            popupOverlay.style.display = 'flex';
+        }
+
+        function closePopup() {
+            const popupOverlay = document.getElementById('popupOverlay');
+            popupOverlay.style.display = 'none';
+        }
+
+        // JavaScript for contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Your message has been sent!');
+            // You can replace the alert with an AJAX request to send the form data to your email server
+        });
+    </script>
+</body>
+</html>
