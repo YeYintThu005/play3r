@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Kyaw Kyar Summe - Offset Printing and Fruit Jams</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #92190b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #800000;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #a12b28;
+            border-radius: 5px;
+        }
+
+        /* Logo Placement */
+        .logo-left, .logo-right {
+            position: absolute;
+            top: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-left {
+            left: 20px;
+        }
+
+        .logo-right {
+            right: 20px;
+        }
+
+        .logo-left:hover, .logo-right:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Content and Image Side-by-Side */
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .content-wrapper .text-content {
+            width: 60%;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .content-wrapper .text-content h2 {
+            font-size: 2.5em;
+            color: #a12b28;
+            margin-bottom: 20px;
+        }
+
+        .content-wrapper .text-content p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .content-wrapper .advertisement {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content-wrapper .advertisement img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-wrapper .advertisement img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 40px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .services h3 {
+            font-size: 2em;
+            color: #a12b28;
+            margin-bottom: 20px;
+            
+        }
+
+        .services ol {
+            padding-left: 20px;
+        }
+
+        .services ol li {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Information */
+        .contact {
+            padding: 40px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact h4 {
+            font-size: 2em;
+            color: #a12b28;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #a12b28;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-wrapper .text-content,
+            .content-wrapper .advertisement {
+                width: 90%;
+            }
+
+            .logo-left, .logo-right {
+                width: 50px;
+                height: 50px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .services ol {
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Logo on the Left -->
+        <img src="logo1.jpg" alt="Logo 1" class="logo-left">
+        
+        <!-- Logo on the Right -->
+        <img src="logo.jpg" alt="Logo 2" class="logo-right">
+
+        <h1>About Kyaw Kyar Summe</h1>
+        <p>Specialist in Offset Printing and Fruit Jams</p>
+
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content and Image Side-by-Side -->
+    <div class="content-wrapper">
+        <!-- Text Content -->
+        <div class="text-content">
+            <h2>Who We Are</h2>
+            <p>Kyaw Kyar Summe is a trusted name in the printing and food industries. With years of experience in both fields, we have established ourselves as a reliable provider of high-quality offset printing services and delicious homemade fruit jams.</p>
+        </div>
+
+        <!-- Advertisement Section -->
+        <div class="advertisement">
+            <img src="ad.jpg" alt="Advertisement Photo">
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h3>Our Services</h3>
+        <ol>
+            <li>Offset Printing</li>
+            <li>High-Quality Pamphlets</li>
+            <li>Custom Business Cards</li>
+            <li>Delicious Homemade Fruit Jams</li>
+        </ol>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h4>Contact Us</h4>
+        <p>Phone: 0240-30166, 0240-23774</p>
+        <p>Address: 11th Street, Between 86th-87th Roads, No(67/7), Aung Myay Thar San Township, Mandalay, Myanmar.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kyaw Kyar Summe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add some interactivity: shade and hover effect on section backgrounds
+        document.querySelectorAll('section').forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+            });
+            section.addEventListener('mouseleave', () => {
+                section.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+
+</body>
+</html>
